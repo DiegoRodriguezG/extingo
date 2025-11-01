@@ -1,34 +1,26 @@
-import { supabase } from '../lib/supabase';
 import { Product } from '../types/product';
+import { products as productsData } from '../data/products';
 
 export async function getAllProducts(): Promise<Product[]> {
-  const { data, error } = await supabase
-    .from('products')
-    .select('*')
-    .order('category', { ascending: true })
-    .order('name', { ascending: true });
+  // Simular delay de API para mantener la experiencia similar
+  await new Promise(resolve => setTimeout(resolve, 300));
 
-  if (error) {
-    console.error('Error fetching products:', error);
-    return [];
-  }
-
-  return data || [];
+  // Ordenar por categoría y nombre
+  return [...productsData].sort((a, b) => {
+    if (a.category === b.category) {
+      return a.name.localeCompare(b.name);
+    }
+    return a.category.localeCompare(b.category);
+  });
 }
 
 export async function getProductsByCategory(category: string): Promise<Product[]> {
-  const { data, error } = await supabase
-    .from('products')
-    .select('*')
-    .eq('category', category)
-    .order('name', { ascending: true });
+  // Simular delay de API para mantener la experiencia similar
+  await new Promise(resolve => setTimeout(resolve, 300));
 
-  if (error) {
-    console.error('Error fetching products by category:', error);
-    return [];
-  }
-
-  return data || [];
+  return productsData
+    .filter(p => p.category === category)
+    .sort((a, b) => a.name.localeCompare(b.name));
 }
 
 export function formatPrice(price: number): string {

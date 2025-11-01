@@ -10,6 +10,8 @@ import Cart from './components/Cart';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import WhatsAppButton from './components/WhatsAppButton';
+import SEO from './components/SEO';
+import StructuredData from './components/StructuredData';
 
 function App() {
   const [isCartOpen, setIsCartOpen] = useState(false);
@@ -25,6 +27,8 @@ function App() {
 
   return (
     <div className="min-h-screen">
+      <SEO />
+      <StructuredData />
       <Navbar onCartClick={handleOpenCart} cartVersion={cartVersion} />
       <Hero />
       <About />

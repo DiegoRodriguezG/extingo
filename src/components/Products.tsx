@@ -102,7 +102,8 @@ export default function Products({ onCartUpdate }: ProductsProps) {
                 <div className="relative h-64 bg-gray-100 overflow-hidden">
                   <img
                     src={product.image_url}
-                    alt={product.name}
+                    alt={`${product.name} - ${product.description} - EXTINGO Chile`}
+                    loading="lazy"
                     className="w-full h-full object-cover hover:scale-110 transition duration-300"
                   />
                   {product.stock <= 10 && product.stock > 0 && (

@@ -1,0 +1,29 @@
+# Robots.txt para EXTINGO
+# https://www.extingo.cl
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://www.extingo.cl/sitemap.xml
+
+# Crawl delay (opcional)
+Crawl-delay: 1
+
+# Bloquear acceso a rutas administrativas o privadas (si las hay en el futuro)
+Disallow: /admin/
+Disallow: /api/
+Disallow: /.env
+Disallow: /private/
+
+# Google específico
+User-agent: Googlebot
+Allow: /
+
+# Google Images
+User-agent: Googlebot-Image
+Allow: /
+
+# Bing
+User-agent: Bingbot
+Allow: /

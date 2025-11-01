@@ -65,11 +65,11 @@ CREATE INDEX IF NOT EXISTS idx_products_category ON products(category);
 
 -- Insert sample products
 INSERT INTO products (name, description, price, image_url, category, stock) VALUES
-  ('Extintor PQS 6kg', 'Extintor de polvo químico seco de 6kg, ideal para hogares y oficinas. Certificado y con garantía.', 25990, 'https://images.pexels.com/photos/327504/pexels-photo-327504.jpeg?auto=compress&cs=tinysrgb&w=800', 'extintores', 50),
-  ('Extintor PQS 10kg', 'Extintor de polvo químico seco de 10kg para uso industrial. Alta capacidad de extinción.', 45990, 'https://images.pexels.com/photos/327504/pexels-photo-327504.jpeg?auto=compress&cs=tinysrgb&w=800', 'extintores', 30),
-  ('Extintor CO2 5kg', 'Extintor de dióxido de carbono de 5kg, ideal para equipos eléctricos y electrónicos.', 65990, 'https://images.pexels.com/photos/327504/pexels-photo-327504.jpeg?auto=compress&cs=tinysrgb&w=800', 'extintores', 25),
-  ('Kit Seguridad Básico', 'Kit de seguridad que incluye extintor 6kg, señalética y guantes de protección.', 35990, 'https://images.pexels.com/photos/6693655/pexels-photo-6693655.jpeg?auto=compress&cs=tinysrgb&w=800', 'kits', 40),
-  ('Kit Seguridad Premium', 'Kit completo con extintor 10kg, señalética, linterna, botiquín y manta ignífuga.', 89990, 'https://images.pexels.com/photos/6693655/pexels-photo-6693655.jpeg?auto=compress&cs=tinysrgb&w=800', 'kits', 20),
-  ('Señalética Extintor', 'Señalética fotoluminiscente de ubicación de extintor. Normativa chilena.', 3990, 'https://images.pexels.com/photos/618021/pexels-photo-618021.jpeg?auto=compress&cs=tinysrgb&w=800', 'senaleticas', 100),
-  ('Señalética Salida Emergencia', 'Cartel de salida de emergencia fotoluminiscente. Material duradero.', 5990, 'https://images.pexels.com/photos/618021/pexels-photo-618021.jpeg?auto=compress&cs=tinysrgb&w=800', 'senaleticas', 80),
-  ('Recarga Extintor PQS 6kg', 'Servicio de recarga para extintor de polvo químico seco de 6kg con certificación.', 12990, 'https://images.pexels.com/photos/4506270/pexels-photo-4506270.jpeg?auto=compress&cs=tinysrgb&w=800', 'servicios', 999);
+  ('Extintor PQS 6kg', 'Extintor de polvo químico seco de 6kg, ideal para hogares y oficinas. Certificado y con garantía.', 25990, 'https://salajoweb.s3.us-east-1.amazonaws.com/uploads/dish/photo/2/extintor.jpeg', 'extintores', 50),
+  ('Extintor PQS 10kg', 'Extintor de polvo químico seco de 10kg para uso industrial. Alta capacidad de extinción.', 45990, 'https://salajoweb.s3.us-east-1.amazonaws.com/uploads/dish/photo/2/extintor.jpeg', 'extintores', 30),
+  ('Extintor CO2 5kg', 'Extintor de dióxido de carbono de 5kg, ideal para equipos eléctricos y electrónicos.', 65990, 'https://salajoweb.s3.us-east-1.amazonaws.com/uploads/dish/photo/2/extintor.jpeg', 'extintores', 25),
+  ('Kit Seguridad Básico', 'Kit de seguridad que incluye extintor 6kg, señalética y guantes de protección.', 35990, 'https://salajoweb.s3.us-east-1.amazonaws.com/uploads/dish/photo/2/extintor.jpeg', 'kits', 40),
+  ('Kit Seguridad Premium', 'Kit completo con extintor 10kg, señalética, linterna, botiquín y manta ignífuga.', 89990, 'https://salajoweb.s3.us-east-1.amazonaws.com/uploads/dish/photo/2/extintor.jpeg', 'kits', 20),
+  ('Señalética Extintor', 'Señalética fotoluminiscente de ubicación de extintor. Normativa chilena.', 3990, 'https://salajoweb.s3.us-east-1.amazonaws.com/uploads/dish/photo/2/extintor.jpeg', 'senaleticas', 100),
+  ('Señalética Salida Emergencia', 'Cartel de salida de emergencia fotoluminiscente. Material duradero.', 5990, 'https://salajoweb.s3.us-east-1.amazonaws.com/uploads/dish/photo/2/extintor.jpeg', 'senaleticas', 80),
+  ('Recarga Extintor PQS 6kg', 'Servicio de recarga para extintor de polvo químico seco de 6kg con certificación.', 12990, 'https://salajoweb.s3.us-east-1.amazonaws.com/uploads/dish/photo/2/extintor.jpeg', 'servicios', 999);
