@@ -38,34 +38,34 @@ export default function About() {
         </div>
 
         <div className="grid md:grid-cols-4 gap-8">
-          <div className="text-center p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition">
+          <div className="text-center p-6 bg-gradient-to-br from-gray-800 via-gray-900 to-gray-900 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-700/50">
             <Heart className="h-12 w-12 text-red-700 mx-auto mb-4" />
-            <h4 className="text-xl font-bold text-gray-900 mb-2">Compromiso Total</h4>
-            <p className="text-gray-600">
+            <h4 className="text-xl font-bold text-white mb-2">Compromiso Total</h4>
+            <p className="text-gray-300">
               Atención personalizada y cumplimiento de plazos garantizado
             </p>
           </div>
 
-          <div className="text-center p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition">
+          <div className="text-center p-6 bg-gradient-to-br from-gray-800 via-gray-900 to-gray-900 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-700/50">
             <Award className="h-12 w-12 text-red-700 mx-auto mb-4" />
-            <h4 className="text-xl font-bold text-gray-900 mb-2">Experiencia Comprobada</h4>
-            <p className="text-gray-600">
+            <h4 className="text-xl font-bold text-white mb-2">Experiencia Comprobada</h4>
+            <p className="text-gray-300">
               Más de 30 años en seguridad y prevención de incendios
             </p>
           </div>
 
-          <div className="text-center p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition">
+          <div className="text-center p-6 bg-gradient-to-br from-gray-800 via-gray-900 to-gray-900 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-700/50">
             <Users className="h-12 w-12 text-red-700 mx-auto mb-4" />
-            <h4 className="text-xl font-bold text-gray-900 mb-2">Confianza y Respaldo</h4>
-            <p className="text-gray-600">
+            <h4 className="text-xl font-bold text-white mb-2">Confianza y Respaldo</h4>
+            <p className="text-gray-300">
               Servicios certificados con garantía de calidad
             </p>
           </div>
 
-          <div className="text-center p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition">
+          <div className="text-center p-6 bg-gradient-to-br from-gray-800 via-gray-900 to-gray-900 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-700/50">
             <TrendingUp className="h-12 w-12 text-red-700 mx-auto mb-4" />
-            <h4 className="text-xl font-bold text-gray-900 mb-2">Innovación Digital</h4>
-            <p className="text-gray-600">
+            <h4 className="text-xl font-bold text-white mb-2">Innovación Digital</h4>
+            <p className="text-gray-300">
               Tecnología moderna para un servicio eficiente
             </p>
           </div>
