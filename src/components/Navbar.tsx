@@ -1,8 +1,20 @@
-import { useState } from 'react';
-import { Menu, X, Shield } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { Menu, X, Shield, ShoppingCart } from 'lucide-react';
+import { getCartItemCount, getCart } from '../utils/cart';
 
-export default function Navbar() {
+interface NavbarProps {
+  onCartClick: () => void;
+  cartVersion: number;
+}
+
+export default function Navbar({ onCartClick, cartVersion }: NavbarProps) {
+  const [cartItemCount, setCartItemCount] = useState(0);
   const [isOpen, setIsOpen] = useState(false);
+
+  useEffect(() => {
+    const cart = getCart();
+    setCartItemCount(getCartItemCount(cart));
+  }, [cartVersion]);
 
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
@@ -24,7 +36,7 @@ export default function Navbar() {
             </div>
           </div>
 
-          <div className="hidden md:flex space-x-8">
+          <div className="hidden md:flex items-center space-x-8">
             <button onClick={() => scrollToSection('inicio')} className="text-gray-700 hover:text-red-700 font-medium transition">
               Inicio
             </button>
@@ -33,6 +45,9 @@ export default function Navbar() {
             </button>
             <button onClick={() => scrollToSection('servicios')} className="text-gray-700 hover:text-red-700 font-medium transition">
               Servicios
+            </button>
+            <button onClick={() => scrollToSection('productos')} className="text-gray-700 hover:text-red-700 font-medium transition">
+              Productos
             </button>
             <button onClick={() => scrollToSection('certificaciones')} className="text-gray-700 hover:text-red-700 font-medium transition">
               Certificaciones
@@ -43,11 +58,35 @@ export default function Navbar() {
             <button onClick={() => scrollToSection('contacto')} className="bg-red-700 text-white px-6 py-2 rounded-md hover:bg-red-800 transition font-medium">
               Contacto
             </button>
+            <button
+              onClick={onCartClick}
+              className="relative p-2 text-gray-700 hover:text-red-700 transition"
+            >
+              <ShoppingCart className="h-6 w-6" />
+              {cartItemCount > 0 && (
+                <span className="absolute -top-1 -right-1 bg-red-700 text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">
+                  {cartItemCount}
+                </span>
+              )}
+            </button>
           </div>
 
-          <button onClick={() => setIsOpen(!isOpen)} className="md:hidden">
-            {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-          </button>
+          <div className="md:hidden flex items-center gap-4">
+            <button
+              onClick={onCartClick}
+              className="relative p-2 text-gray-700"
+            >
+              <ShoppingCart className="h-6 w-6" />
+              {cartItemCount > 0 && (
+                <span className="absolute -top-1 -right-1 bg-red-700 text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">
+                  {cartItemCount}
+                </span>
+              )}
+            </button>
+            <button onClick={() => setIsOpen(!isOpen)}>
+              {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            </button>
+          </div>
         </div>
       </div>
 
@@ -62,6 +101,9 @@ export default function Navbar() {
             </button>
             <button onClick={() => scrollToSection('servicios')} className="block w-full text-left text-gray-700 hover:text-red-700 font-medium py-2">
               Servicios
+            </button>
+            <button onClick={() => scrollToSection('productos')} className="block w-full text-left text-gray-700 hover:text-red-700 font-medium py-2">
+              Productos
             </button>
             <button onClick={() => scrollToSection('certificaciones')} className="block w-full text-left text-gray-700 hover:text-red-700 font-medium py-2">
               Certificaciones
