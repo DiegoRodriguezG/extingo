@@ -10,7 +10,7 @@ export default function StructuredData() {
     "url": "https://www.extingo.cl",
     "logo": "https://www.extingo.cl/logo.png",
     "image": "https://www.extingo.cl/og-image.jpg",
-    "telephone": "+56912345678",
+    "telephone": "+56932535809",
     "email": "contacto@extingo.cl",
     "address": {
       "@type": "PostalAddress",

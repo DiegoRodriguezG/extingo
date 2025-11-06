@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Mail, Phone, MapPin, Clock, Send } from 'lucide-react';
-import { supabase } from '../lib/supabase';
+import emailjs from '@emailjs/browser';
+import { EMAILJS_CONFIG, RECIPIENT_EMAIL, DEMO_MODE } from '../config/emailjs';
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -20,20 +21,32 @@ export default function Contact() {
     setErrorMessage('');
 
     try {
-      const { error } = await supabase
-        .from('contact_submissions')
-        .insert([
-          {
-            name: formData.name,
-            email: formData.email,
-            phone: formData.phone,
-            company: formData.company,
-            message: formData.message,
-            service: formData.service
-          }
-        ]);
+      if (DEMO_MODE) {
+        // Simulate email send in demo mode
+        console.log('DEMO MODE: Email would be sent with data:', formData);
+        await new Promise(resolve => setTimeout(resolve, 1000));
+      } else {
+        // Prepare email template parameters
+        const templateParams = {
+          to_email: RECIPIENT_EMAIL,
+          user_name: formData.name,
+          user_email: formData.email,
+          user_phone: formData.phone,
+          user_comments: `Empresa: ${formData.company || 'No especificado'}\nServicio: ${formData.service}\nMensaje: ${formData.message}`,
+          order_date: new Date().toLocaleString('es-CL'),
+          order_summary: `Consulta de formulario de contacto\nServicio de interés: ${formData.service}`,
+          order_id: 'CONTACTO',
+          total_amount: 'N/A'
+        };
 
-      if (error) throw error;
+        // Send email via EmailJS
+        await emailjs.send(
+          EMAILJS_CONFIG.SERVICE_ID,
+          EMAILJS_CONFIG.CONTACT_TEMPLATE_ID,
+          templateParams,
+          EMAILJS_CONFIG.PUBLIC_KEY
+        );
+      }
 
       setStatus('success');
       setFormData({
@@ -82,9 +95,8 @@ export default function Contact() {
               <div className="flex items-start space-x-4">
                 <Phone className="h-6 w-6 text-red-700 mt-1" />
                 <div>
-                  <h4 className="font-bold text-gray-900 mb-1">Teléfono</h4>
-                  <p className="text-gray-600">+56 9 1234 5678</p>
-                  <p className="text-gray-600">+56 2 2345 6789</p>
+                  <h4 className="font-bold text-gray-900 mb-1">Teléfono / WhatsApp</h4>
+                  <p className="text-gray-600">+56 9 3253 5809</p>
                 </div>
               </div>
 

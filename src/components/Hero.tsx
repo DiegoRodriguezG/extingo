@@ -9,21 +9,21 @@ export default function Hero() {
   };
 
   return (
-    <section id="inicio" className="relative h-screen flex items-center justify-center bg-gradient-to-br from-red-900 via-red-800 to-red-700 text-white pt-20">
+    <section id="inicio" className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-red-900 via-red-800 to-red-700 text-white">
       <div className="absolute inset-0 bg-black opacity-20"></div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <Shield className="h-24 w-24 mx-auto mb-6 animate-pulse" />
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-24 pb-12">
+        <Shield className="h-16 w-16 sm:h-20 sm:w-20 md:h-24 md:w-24 mx-auto mb-6 animate-pulse" />
 
-        <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
+        <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold mb-6 leading-tight">
           Tu seguridad,<br />nuestra experiencia
         </h1>
 
-        <p className="text-xl md:text-2xl mb-4 text-gray-100 max-w-3xl mx-auto">
+        <p className="text-lg sm:text-xl md:text-2xl mb-4 text-gray-100 max-w-3xl mx-auto">
           Más de 30 años protegiendo a empresas y familias en Chile
         </p>
 
-        <p className="text-lg md:text-xl mb-10 text-gray-200 max-w-2xl mx-auto">
+        <p className="text-base sm:text-lg md:text-xl mb-10 text-gray-200 max-w-2xl mx-auto">
           Venta, recarga y mantención certificada de extintores y sistemas de seguridad
         </p>
 
@@ -36,7 +36,7 @@ export default function Hero() {
           </button>
 
           <a
-            href="https://wa.me/56912345678"
+            href="https://wa.me/56932535809"
             target="_blank"
             rel="noopener noreferrer"
             className="bg-green-600 text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-green-700 transition transform hover:scale-105 shadow-xl flex items-center gap-2"

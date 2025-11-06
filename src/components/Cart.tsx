@@ -3,6 +3,7 @@ import { ShoppingBag, X, Plus, Minus, Trash2, ShoppingCart } from 'lucide-react'
 import { CartItem } from '../types/product';
 import { getCart, updateCartItemQuantity, removeFromCart, clearCart, getCartTotal, getCartItemCount } from '../utils/cart';
 import { formatPrice } from '../utils/products';
+import CheckoutModal from './CheckoutModal';
 
 interface CartProps {
   isOpen: boolean;
@@ -12,6 +13,7 @@ interface CartProps {
 
 export default function Cart({ isOpen, onClose, cartVersion }: CartProps) {
   const [cart, setCart] = useState<CartItem[]>([]);
+  const [isCheckoutOpen, setIsCheckoutOpen] = useState(false);
 
   useEffect(() => {
     setCart(getCart());
@@ -32,6 +34,13 @@ export default function Cart({ isOpen, onClose, cartVersion }: CartProps) {
       clearCart();
       setCart([]);
     }
+  };
+
+  const handleOrderComplete = () => {
+    clearCart();
+    setCart([]);
+    setIsCheckoutOpen(false);
+    onClose();
   };
 
   const total = getCartTotal(cart);
@@ -157,7 +166,10 @@ export default function Cart({ isOpen, onClose, cartVersion }: CartProps) {
               <span className="text-red-700">{formatPrice(total)}</span>
             </div>
 
-            <button className="w-full bg-red-700 text-white py-4 rounded-lg font-bold text-lg hover:bg-red-800 transition">
+            <button
+              onClick={() => setIsCheckoutOpen(true)}
+              className="w-full bg-red-700 text-white py-4 rounded-lg font-bold text-lg hover:bg-red-800 transition"
+            >
               Proceder al pago
             </button>
 
@@ -169,6 +181,14 @@ export default function Cart({ isOpen, onClose, cartVersion }: CartProps) {
             </button>
           </div>
         )}
+
+        <CheckoutModal
+          isOpen={isCheckoutOpen}
+          onClose={() => setIsCheckoutOpen(false)}
+          cart={cart}
+          total={total}
+          onOrderComplete={handleOrderComplete}
+        />
       </div>
     </>
   );
